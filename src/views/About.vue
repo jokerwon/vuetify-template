@@ -1,6 +1,14 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-    <v-btn color="primary">你好</v-btn>
-  </div>
+  <v-container>
+    <v-avatar color="#1565C0">
+      <span class="white--text headline">JK</span>
+    </v-avatar>
+  </v-container>
 </template>
+
+<style lang="scss" scoped>
+.about {
+  padding: 20px;
+}
+</style>
+

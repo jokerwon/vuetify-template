@@ -1,39 +1,48 @@
 <template>
   <v-app>
-    <v-app-bar app dark color="primary">
-      <div class="d-flex align-center">
+    <v-app-bar
+      app
+      absolute
+      dark
+      shrink-on-scroll
+      prominent
+      src="https://picsum.photos/1920/1080?random"
+    >
+      <template v-slot:img="{ props }">
         <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
+          v-bind="props"
+          gradient="to top right, rgba(100,115,201,.7), rgba(25,32,72,.7)"
+        ></v-img>
+      </template>
 
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
+      <v-app-bar-nav-icon></v-app-bar-nav-icon>
+
+      <v-toolbar-title>Joker Won</v-toolbar-title>
 
       <v-spacer></v-spacer>
 
-      <v-btn href="https://github.com/vuetifyjs/vuetify/releases/latest" target="_blank" text>
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
+      <v-btn icon>
+        <v-icon>mdi-magnify</v-icon>
       </v-btn>
-    </v-app-bar>
 
-    <v-content>
-      <v-btn text @click="linkTo('/')">首页</v-btn>
-      <v-btn text @click="linkTo('/about')">关于</v-btn>
+      <v-btn icon>
+        <v-icon>mdi-heart</v-icon>
+      </v-btn>
+
+      <v-btn icon>
+        <v-icon>mdi-dots-vertical</v-icon>
+      </v-btn>
+
+      <template v-slot:extension>
+        <v-tabs  centered>
+          <v-tab to="/">首页</v-tab>
+          <v-tab to="/about">关于</v-tab>
+        </v-tabs>
+      </template>
+    </v-app-bar>
+    <v-main>
       <router-view></router-view>
-    </v-content>
+    </v-main>
   </v-app>
 </template>
 
@@ -48,7 +57,6 @@ export default {
   }),
   methods: {
     linkTo(url) {
-      console.log(this)
       this.$router.push(url)
     }
   }
