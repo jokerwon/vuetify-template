@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-avatar color="#1565C0">
-      <span class="white--text headline">JK</span>
+      <span class="white--text headline">JokerWon</span>
     </v-avatar>
   </v-container>
 </template>
