@@ -4,7 +4,7 @@ pipeline {
     options {
         gitLabConnection('GitLab')
     }
-    
+
     triggers {
         gitlab(
             triggerOnPush: true,
@@ -43,7 +43,7 @@ pipeline {
               branch 'release'
             }
             steps {
-                echo "${OWNER} in dev"
+                echo "${OWNER} in release"
             }
         }
     }
