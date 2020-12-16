@@ -1,5 +1,17 @@
 pipeline {
     agent any
+
+    options {
+        gitLabConnection('GitLab')
+    }
+    
+    triggers {
+        gitlab(
+            triggerOnPush: true,
+            triggerOnMergeRequest: true,
+            branchFilterType: 'All',
+            addVoteOnMergeRequest: true)
+    }
     
     stages {
         // stage('pull') {
